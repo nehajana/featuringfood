@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:visibility="visible"
+        android:id="@+id/rll_taskbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="3dp"
+        android:background="@color/WhiteDark">
+        <RelativeLayout
+            android:id="@+id/rll_arrow"
+            android:layout_width="40dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_centerInParent="true"
+                android:id="@+id/imgbkarr"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:tint="@color/red"
+                android:src="@drawable/arrow_left_icon"
+                />
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/txt_sgn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location"
+            android:layout_centerVertical="true"
+            android:textSize="19dp"
+            android:textColor="@color/red"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/location_search"
+        android:layout_below="@+id/rll_taskbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="3dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/roundbackground">
+
+        <EditText
+            android:id="@+id/edt_location"
+            android:layout_width="280dp"
+            android:visibility="gone"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:padding="5dp"
+            android:hint="Search location"
+            android:singleLine="true"/>
+
+        <com.seatgeek.placesautocomplete.PlacesAutocompleteTextView
+            android:id="@+id/autocomplete"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:hint="Enter Location"
+            android:background="@null"
+            app:pacv_googleMapsApiKey="@string/google_maps_api_key" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rll_map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/location_search">
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".LocationScreen.Demo_LocationActivity" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rll_next"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/roundbackground"
+        android:backgroundTint="@color/colorAccent">
+
+        <TextView
+            android:id="@+id/bttn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="Confirm"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+    </RelativeLayout>
+
+</RelativeLayout>
+

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+   >
+    <ScrollView
+        android:layout_above="@+id/btn_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/Rr_img_order"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img_order"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="30dp"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/order_placed"/>
+
+                <TextView
+                    android:layout_below="@+id/img_order"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/txt_order_confirmed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/Black"
+                    android:textStyle="normal"
+                    android:layout_centerHorizontal="true"
+                    android:text="Order Confirmed!"
+                    android:textSize="30sp"/>
+
+                <RelativeLayout
+                    android:id="@+id/RR_orderid"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/txt_order_confirmed"
+                    android:layout_width="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_marginLeft="30dp"
+                        android:id="@+id/txt_thanks_order"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/dimgray"
+                        android:text="@string/thanks"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:layout_below="@+id/txt_thanks_order"
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/txt_order_id"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:singleLine="true"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/red"
+                        android:text="RS142145893"
+                        />
+                    <TextView
+                        android:layout_marginLeft="30dp"
+                        android:layout_below="@+id/txt_order_id"
+                        android:id="@+id/txt_notification"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/dimgray"
+                        android:text="@string/send_notification"
+                        android:layout_marginBottom="10dp"
+                        android:textSize="15sp"/>
+                </RelativeLayout>
+            </RelativeLayout>
+            <TextView
+                android:layout_marginTop="40dp"
+                android:layout_below="@+id/Rr_img_order"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="40dp"
+                android:id="@+id/txt_feel_free"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/dimgray"
+                android:textStyle="normal"
+                android:text="@string/feel_free"
+                android:textSize="15sp"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <Button
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/btn_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/roundbttn"
+        android:text="Done"
+        android:textColor="@color/white"/>
+
+</RelativeLayout>

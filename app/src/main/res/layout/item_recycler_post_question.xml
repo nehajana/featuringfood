@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@color/white" >
+
+    <RelativeLayout
+        android:id="@+id/RR_order"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+       >
+
+        <CheckBox
+            android:id="@+id/moreitem_check_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/Gray"
+            android:checked="false"
+            android:padding="5dp"
+            android:text="Fresh Meat"
+            android:focusable="false"
+            android:clickable="false"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:id="@+id/txt_price"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp"
+            android:visibility="gone"
+            android:layout_below="@+id/txt_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$ 0.00"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>

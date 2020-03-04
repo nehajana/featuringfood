@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "293527887299",
+    "firebase_url": "https://ecommerce-25dd5.firebaseio.com",
+    "project_id": "ecommerce-25dd5",
+    "storage_bucket": "ecommerce-25dd5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:293527887299:android:e2120aea6bb3ccaa",
+        "android_client_info": {
+          "package_name": "com.android.ecommerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "293527887299-dhp47mvr2p0i1lu2d5nilqh0e83mkh38.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.android.ecommerce",
+            "certificate_hash": "703cc4e53d73011f86b3c0d41d719d0f28a82580"
+          }
+        },
+        {
+          "client_id": "293527887299-pf7cfe3di88odstlij0lrg5pcehbt4bk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.android.ecommerce",
+            "certificate_hash": "d09d1971bb9425698733bd0898657dbb7205e72a"
+          }
+        },
+        {
+          "client_id": "293527887299-avkm6t9eifh28iup4fiqjbvmkldhpj70.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMBUGTbDW-QoRaIyWxtRl6swNrdJAV1uw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "293527887299-m490k9uou8qgf9nf1hec522bvlocugso.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:293527887299:android:c4c1e9d30b2c953984b176",
+        "android_client_info": {
+          "package_name": "shubham.com.featurringfooddelivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "293527887299-4505ebmphpss2320eraagkgmrqbmlv69.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "shubham.com.featurringfooddelivery",
+            "certificate_hash": "d09d1971bb9425698733bd0898657dbb7205e72a"
+          }
+        },
+        {
+          "client_id": "293527887299-avkm6t9eifh28iup4fiqjbvmkldhpj70.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMBUGTbDW-QoRaIyWxtRl6swNrdJAV1uw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "293527887299-m490k9uou8qgf9nf1hec522bvlocugso.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

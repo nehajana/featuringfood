@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<RelativeLayout
+    android:id="@+id/rll_spinner"
+    android:layout_width="match_parent"
+    android:layout_height="30dp">
+    <ImageView
+        android:layout_centerVertical="true"
+        android:id="@+id/img_flag"
+        android:layout_width="20dp"
+        android:layout_height="30dp"
+        android:src="@drawable/unitedarab"
+        />
+    <TextView
+        android:layout_centerVertical="true"
+        android:id="@+id/textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/img_flag"
+        android:textColor="@color/black"
+        android:layout_marginLeft="7dp"
+        android:textSize="17dp"
+        >
+    </TextView>
+
+</RelativeLayout>
+
+</RelativeLayout>

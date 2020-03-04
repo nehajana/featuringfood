@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginScreen.LoginActivity"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_above="@+id/rll_number"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
+
+        <RelativeLayout
+            android:id="@+id/rll_welcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Welcome to Featurring Food"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/colorAccent"
+                android:textSize="20dp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rll_img_login_tree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rll_welcome">
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/img_login_tree"
+                android:layout_marginTop="30dp"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:src="@drawable/appicon"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:background="@drawable/roundbackground"
+            android:id="@+id/rll_spinner_line"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:layout_below="@+id/rll_img_login_tree">
+            <Spinner
+                android:visibility="visible"
+                android:id="@+id/spinner"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:layout_marginLeft="7dp"
+                style="@style/Base.Widget.AppCompat.Spinner.Underlined"/>
+            <View
+                android:layout_margin="5dp"
+                android:layout_toRightOf="@+id/spinner"
+                android:id="@+id/view"
+                android:background="@color/colorAccent"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"/>
+            <EditText
+                android:paddingLeft="5dp"
+                android:gravity="left"
+                android:id="@+id/edt_phoneno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/view"
+                android:hint="Phone number"
+                android:textSize="17dp"
+                android:background="@null"
+                android:text="1234567890"
+                android:layout_centerVertical="true"
+                android:maxLength="14"
+                android:inputType="number"
+                android:textColor="@color/black"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rll_spinner_line"
+            android:layout_marginTop="10dp"
+            android:padding="5dp">
+            <CheckBox
+                android:id="@+id/checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/colorAccent"/>
+            <RelativeLayout
+                android:layout_centerVertical="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/checkbox"
+                >
+                <RelativeLayout
+                    android:id="@+id/rll_one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/txt_one"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="I agree to MobileWash's "
+                        android:textSize="13dp"
+                        />
+                    <TextView
+                        android:id="@+id/txt_terms_condition"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Terms and Conditions"
+                        android:textColor="@color/colorAccent"
+                        android:layout_toRightOf="@+id/txt_one"
+                        android:textSize="13dp"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rll_one">
+                    <TextView
+                        android:id="@+id/txt_four"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" and "
+                        android:textSize="13dp"  />
+                    <TextView
+                        android:id="@+id/txt_privacy_policy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/txt_four"
+                        android:text="  Privacy Policy"
+                        android:textSize="13dp"
+                        android:textColor="@color/colorAccent"/>
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rll_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_alignParentBottom="true"
+        >
+        <ImageView
+            android:layout_margin="5dp"
+            android:id="@+id/img_next"
+            android:layout_width="80dp"
+            android:layout_height="70dp"
+            android:src="@drawable/redarrow_circle"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <ProgressBar
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:id="@+id/progressbar"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content" />
+
+
+
+</RelativeLayout>
+

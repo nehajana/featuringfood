@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+
+    <ProgressBar
+        android:visibility="visible"
+        android:id="@+id/progressbar"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/txt_emty"
+        android:visibility="gone"
+        android:textSize="18dp"
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:text="There’s nothing cooking. Tell the chef what to cook."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <ScrollView
+        android:layout_above="@+id/Booking_payment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/RR_allItem"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:visibility="visible"
+                    android:layout_margin="5dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/recycler_order"
+                    >
+                </android.support.v7.widget.RecyclerView>
+
+                <RelativeLayout
+                    android:visibility="gone"
+                    android:id="@+id/RR_delivery"
+                    android:layout_below="@+id/recycler_order"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+
+                        android:layout_marginLeft="5dp"
+                        android:textSize="12dp"
+                        android:textColor="@color/red"
+                        android:id="@+id/txt_delivery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Add More Item"
+                        />
+
+                </RelativeLayout>
+
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_below="@+id/RR_delivery"
+                    android:visibility="visible"
+                    android:textSize="14dp"
+                    android:textColor="@color/red"
+                    android:id="@+id/txt_time_change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="You can place a one time order, or we can deliver breakfast in bed or dinner when you get home everyday. Please select below."
+                    />
+
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:weightSum="2"
+                    android:orientation="horizontal"
+                    android:id="@+id/LL_btn"
+                    android:layout_below="@+id/txt_time_change"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <RelativeLayout
+                        android:id="@+id/RR_oneTime"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_margin="5dp"
+                            android:layout_centerVertical="true"
+                            android:id="@+id/img_oneTime"
+                            android:src="@drawable/radio_button_red"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp" />
+
+
+                        <Button
+                            android:layout_toRightOf="@+id/img_oneTime"
+                            android:id="@+id/addmore_btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:textAllCaps="false"
+                            android:textSize="18dp"
+                            android:background="@drawable/roundbttn"
+                            android:ems="15"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="One Time Order"
+                            android:textColor="@color/white" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/RR_Repeat"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_margin="5dp"
+                            android:layout_centerVertical="true"
+                            android:id="@+id/img_repeat"
+                            android:src="@drawable/circle_grey"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp" />
+
+                        <Button
+                            android:layout_toRightOf="@+id/img_repeat"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:id="@+id/order_RepeatOrder"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:textAllCaps="false"
+                            android:textSize="18dp"
+                            android:background="@drawable/roundbttn"
+                            android:ems="15"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="Repeat Order"
+                            android:textColor="@color/white" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/RR_item_slecttime"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/LL_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_marginLeft="5dp"
+                        android:textSize="12dp"
+                        android:textColor="@color/red"
+                        android:id="@+id/txt_delivery_chooseday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Choose Day"
+                        />
+
+                    <HorizontalScrollView
+                        android:layout_below="@+id/txt_delivery_chooseday"
+                        android:id="@+id/LL_day"
+                        android:padding="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:background="@drawable/rounded"
+                            android:layout_marginTop="5dp"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp">
+
+                            <TextView
+                                android:id="@+id/txt_s"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:background="@drawable/rounded"
+                                android:text="Sunday"
+                                android:layout_width="wrap_content"
+                                android:layout_height="55dp"
+                                android:textColor="@color/red"
+                                android:textColorHint="@color/Gray_one"
+                                />
+
+                            <TextView
+                                android:id="@+id/txt_m"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:background="@drawable/rounded"
+                                android:text="Monday"
+                                android:layout_width="wrap_content"
+                                android:layout_height="55dp"
+                                android:textColor="@color/red"
+                                android:textColorHint="@color/Gray_one"
+                                />
+
+                            <TextView
+                                android:id="@+id/txt_t"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:background="@drawable/rounded"
+                                android:text="Tuesday"
+                                android:layout_width="wrap_content"
+                                android:layout_height="55dp"
+                                android:textColor="@color/red"
+                                android:textColorHint="@color/Gray_one"
+                                />
+
+                            <TextView
+                                android:id="@+id/txt_w"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:background="@drawable/rounded"
+                                android:text="Wednesday"
+                                android:layout_width="wrap_content"
+                                android:layout_height="55dp"
+                                android:textColor="@color/red"
+                                android:textColorHint="@color/Gray_one"
+                                />
+
+                            <TextView
+                                android:id="@+id/txt_th"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:background="@drawable/rounded"
+                                android:text="Thursday"
+                                android:layout_width="wrap_content"
+                                android:layout_height="55dp"
+                                android:textColor="@color/red"
+                                android:textColorHint="@color/Gray_one"
+                                />
+
+                            <TextView
+                                android:id="@+id/txt_fr"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:background="@drawable/rounded"
+                                android:text="Friday"
+                                android:layout_width="wrap_content"
+                                android:layout_height="55dp"
+                                android:textColor="@color/red"
+                                android:textColorHint="@color/Gray_one"
+                                />
+
+                            <TextView
+                                android:id="@+id/txt_st"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:background="@drawable/rounded"
+                                android:text="Saturday"
+                                android:layout_width="wrap_content"
+                                android:layout_height="55dp"
+                                android:textColor="@color/red"
+                                android:textColorHint="@color/Gray_one"
+                                />
+
+                        </LinearLayout>
+
+                    </HorizontalScrollView>
+
+                    <TextView
+                        android:id="@+id/txt_choosetime"
+                        android:layout_below="@+id/LL_day"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="14dp"
+                        android:textColor="@color/red"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Choose Time"
+                        />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:visibility="visible"
+                        android:layout_marginTop="5dp"
+                        android:layout_below="@+id/txt_choosetime"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/recycler_Coosetime"
+                        >
+                    </android.support.v7.widget.RecyclerView>
+
+
+                    <RelativeLayout
+                        android:id="@+id/RR_moreTime"
+                        android:layout_margin="5dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/recycler_Coosetime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_margin="5dp"
+                            android:textSize="16dp"
+                            android:textColor="@color/red"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="More Times"
+                            />
+
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:visibility="gone"
+                    android:id="@+id/RR_item"
+                    android:layout_below="@+id/RR_item_slecttime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:visibility="gone"
+                        android:layout_margin="5dp"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/red"
+                        android:id="@+id/txt_ingredients"
+                        android:text="ingredients"
+                        android:textSize="16dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/recycler_ingredients"
+                        android:layout_below="@+id/txt_ingredients"
+                        >
+                    </android.support.v7.widget.RecyclerView>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/RR_totla"
+                    android:padding="10dp"
+                    android:background="@color/gray"
+                    android:layout_below="@+id/RR_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textColor="@color/black"
+                        android:id="@+id/txtfinance_amount"
+                        android:text="$00.00"
+                        android:textSize="16dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:textColor="@color/black"
+                        android:id="@+id/finance_amount"
+                        android:text="Item subtotal :"
+                        android:textSize="16dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/black"
+                        android:layout_below="@+id/finance_amount"
+                        android:text="Delivery Fee"
+                        android:textSize="16dp"
+                        android:id="@+id/total_amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/black"
+                        android:layout_below="@+id/txtfinance_amount"
+                        android:text="Free"
+                        android:textSize="16dp"
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/txttotal_amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/black"
+                        android:layout_below="@+id/txttotal_amount"
+                        android:id="@+id/txtemi_start_date"
+                        android:text="$00.00"
+                        android:textSize="16dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/black"
+                        android:layout_below="@+id/total_amount"
+                        android:id="@+id/emi_sales_tax"
+                        android:text="Sales Tax :"
+                        android:textSize="16dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/black"
+                        android:layout_below="@+id/emi_sales_tax"
+                        android:id="@+id/emi_start_date"
+                        android:text="Total :"
+                        android:textSize="16dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/txt_final_amt"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/black"
+                        android:layout_below="@+id/emi_sales_tax"
+                        android:text="$00.00"
+                        android:textSize="16dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/txt_empty"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/red"
+                    android:layout_below="@+id/RR_totla"
+                    android:text="Empty bag"
+                    android:textSize="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/txt_add_tip"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="25dp"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/txt_empty"
+                    android:text="Add a tip for your driver"
+                    android:textSize="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+                <LinearLayout
+                    android:id="@+id/LL_tip"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_below="@+id/txt_add_tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:id="@+id/txt_cash_tip"
+                        android:padding="10dp"
+                        android:gravity="center"
+                        android:background="@color/ActionBarColor"
+                        android:text="Cash Tip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/Gray_one"
+                        />
+
+                    <TextView
+                        android:id="@+id/txt_ten_percentage"
+                        android:padding="10dp"
+                        android:gravity="center"
+                        android:background="@drawable/rounded"
+                        android:text="10%"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/Gray_one"
+                        />
+                    <TextView
+                        android:id="@+id/txt_fiveteen_percentage"
+                        android:padding="10dp"
+                        android:gravity="center"
+                        android:text="15%"
+                        android:background="@drawable/rounded"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/Gray_one"
+                        />
+
+                    <TextView
+                        android:id="@+id/txt_twenty_percentage"
+                        android:padding="10dp"
+                        android:gravity="center"
+                        android:background="@drawable/rounded"
+                        android:text="20%"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/Gray_one"
+                        />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txt_custom"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/txt_add_tip"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:text="Custom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:textColor="@color/red"
+                    />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <Button
+        android:visibility="gone"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/Booking_payment"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:textAllCaps="false"
+        android:textSize="18dp"
+        android:background="@drawable/roundbttn"
+        android:ems="15"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="Continue to checkout: 00.00"
+        android:textColor="@color/white"
+        />
+
+</RelativeLayout>

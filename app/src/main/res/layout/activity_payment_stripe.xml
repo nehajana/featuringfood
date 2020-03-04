@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+
+    <RelativeLayout
+        android:id="@+id/rr_pay_method"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/img"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/stripeimg" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rr_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/rr_pay_method">
+
+        <com.stripe.android.view.CardInputWidget
+            android:id="@+id/card_input_widget"
+            android:layout_width="match_parent"
+            android:background="@drawable/edit_textborder"
+            android:padding="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_height="50dp"
+            />
+
+        <EditText
+            android:textColor="#00bfff"
+            android:id="@+id/fullname_etxt1"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/card_input_widget"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginTop="15dp"
+            android:hint="@string/enter_name"
+            android:inputType="textPersonName"
+            android:singleLine="true"
+            android:paddingLeft="10dp"
+            android:maxLength="30"
+            android:drawablePadding="15dp"
+            android:drawableLeft="@drawable/customer_icon"
+            android:background="@drawable/edit_textborder"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+
+        <EditText
+            android:id="@+id/email_etxt"
+            android:layout_width="match_parent"
+            android:inputType="textEmailAddress"
+            android:layout_below="@+id/fullname_etxt1"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:hint="@string/enter_email"
+            android:textColor="#00bfff"
+            android:singleLine="true"
+            android:drawableLeft="@drawable/e_mail"
+            android:paddingLeft="10dp"
+            android:drawablePadding="15dp"
+            android:background="@drawable/edit_textborder"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_alignParentBottom="true"
+        android:id="@+id/pay_btn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textColor="@color/white"
+        android:padding="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        android:textStyle="bold"
+        android:background="#32cd32"
+        android:text="@string/pay_now"/>
+
+</RelativeLayout>

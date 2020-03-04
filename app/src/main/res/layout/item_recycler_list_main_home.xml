@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/Black"
+    android:layout_marginTop="8dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    app:cardCornerRadius="7dp"
+    android:layout_marginBottom="10dp"
+    android:layout_height="wrap_content"
+    >
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="wrap_content"
+        android:background="@color/black"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
+            android:id="@+id/ImgCat"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:src="@drawable/img_icon_five"
+            android:scaleType="centerCrop"
+            />
+
+        <RelativeLayout
+            android:background="@color/white"
+            android:layout_below="@+id/ImgCat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/profile_image"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="15dp"
+                android:src="@drawable/img_icon"
+                android:visibility="gone"
+                app:civ_border_color="#FF000000"/>
+
+            <RelativeLayout
+                android:layout_marginLeft="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/profile_image"
+                >
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:id="@+id/txt_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="My delivery"
+                    android:layout_marginTop="15dp"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
+                    android:textColor="@color/black"
+                    />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/txt_description"
+                    android:layout_below="@+id/txt_title"
+                    android:layout_width="wrap_content"
+                    android:maxLines="1"
+                    android:layout_height="wrap_content"
+                    android:text="Fast Delivery"
+                    android:layout_marginTop="2dp"
+                    android:textColor="@color/Gray"
+                    />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/txt_priceSymbol"
+                    android:layout_below="@+id/txt_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$5.00"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="15dp"
+                    android:textColor="@color/Red"
+                    />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
