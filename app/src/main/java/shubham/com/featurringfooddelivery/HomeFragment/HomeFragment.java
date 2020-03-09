@@ -85,15 +85,22 @@ HomeFragment extends Fragment implements IApiResponse {
 
 
       //  HomeBottomActivity.txt_title_address.setText(Zipcode+","+address);
-        HomeBottomActivity.txt_title_address.setText(address);
+
+        if(address.equalsIgnoreCase("0"))
+        {
+            HomeBottomActivity.txt_title_address.setText("No Data");
+
+        }else
+        {
+            HomeBottomActivity.txt_title_address.setText(address);
+        }
+
 
         //RR_wrong_address=(RelativeLayout) findViewById(R.id.RR_wrong_address);
 
         try {
 
-            int ZipCode = Integer.parseInt(Preference.get(getActivity(), Preference.KEY_ZipCode));
-
-
+            int ZipCode = Integer.parseInt(Preference.get(getActivity(),Preference.KEY_ZipCode));
 
             if (zipCodelist.contains(String.valueOf(ZipCode))) {
                 // correct zipcode
@@ -109,7 +116,7 @@ HomeFragment extends Fragment implements IApiResponse {
             ex.printStackTrace();
         }
 
-        String Categoryid =  Preference.get(getActivity(),Preference.KEY_Main_CategoryId);
+        String Categoryid = Preference.get(getActivity(),Preference.KEY_Main_CategoryId);
 
         homeMethod(Categoryid);
 

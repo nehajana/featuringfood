@@ -12,11 +12,9 @@ public class NewAddressDataModel {
     public Boolean getSelected() {
         return isSelected;
     }
-
     public void setSelected(Boolean selected) {
         isSelected = selected;
     }
-
     @SerializedName("Address_id")
     @Expose
     private String addressId;
@@ -39,8 +37,20 @@ public class NewAddressDataModel {
     @Expose
     private String state;
 
+    @SerializedName("selected")
+    @Expose
+    private String selected;
+
+    public void setSelected(String selected) {
+        this.selected = selected;
+    }
+
     public String getAddressId() {
         return addressId;
+    }
+
+    public String getSelctedAddress() {
+        return selected;
     }
 
     public void setAddressId(String addressId) {

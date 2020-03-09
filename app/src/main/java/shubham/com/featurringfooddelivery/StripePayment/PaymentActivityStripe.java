@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.android.volley.Request;
@@ -45,7 +46,6 @@ public class PaymentActivityStripe extends SwipeBackActivity implements IApiResp
     ProgressDialog pDialog;
     ImageView img_back;
     String media_id;
-
     String paidAmt;
     Float amt;
     EditText fullname_etxt;
@@ -55,6 +55,7 @@ public class PaymentActivityStripe extends SwipeBackActivity implements IApiResp
     String email;
     String address;
 
+    RelativeLayout RR_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +67,15 @@ public class PaymentActivityStripe extends SwipeBackActivity implements IApiResp
         pay_btn = (Button) findViewById(R.id.pay_btn);
         fullname_etxt = (EditText) findViewById(R.id.fullname_etxt1);
         email_etxt = (EditText) findViewById(R.id.email_etxt);
+        RR_back = (RelativeLayout) findViewById(R.id.RR_back);
+
+        RR_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                onBackPressed();
+            }
+        });
      /*   img_back = findViewById(R.id.img_back);
 
         img_back.setOnClickListener(new View.OnClickListener() {
@@ -109,8 +119,6 @@ public class PaymentActivityStripe extends SwipeBackActivity implements IApiResp
 
                 } else {
 
-
-
                     String cvv = mCardInputWidget.getCard().getCVC();
                     int exp = mCardInputWidget.getCard().getExpMonth();
                     int exp_year = mCardInputWidget.getCard().getExpYear();
@@ -119,8 +127,6 @@ public class PaymentActivityStripe extends SwipeBackActivity implements IApiResp
                     CreateToken(card);
                     pDialog.show();
                     pDialog.setCancelable(false);
-
-
                 }
             }
         });
@@ -141,9 +147,11 @@ public class PaymentActivityStripe extends SwipeBackActivity implements IApiResp
     }
 
     private void CreateToken(Card card) {
-        //   Stripe stripe = new Stripe(PaymentActivity.this, "pk_test_Uoon6IQ6rBk6zXnX3NMaWpp5");
-       // Stripe stripe = new Stripe(PaymentActivityStripe.this, "pk_test_YPlyXgFvAegWYwdWPkm5vYYg00qgW4ePHd");
-        Stripe stripe = new Stripe(PaymentActivityStripe.this, "pk_test_MeWfB2021F2RCCdI9AnZ4fzp00R5yvfgZf");
+
+     /*--------Client testKey---------*/
+        //Stripe stripe = new Stripe(PaymentActivityStripe.this, "pk_test_MeWfB2021F2RCCdI9AnZ4fzp00R5yvfgZf");
+        Stripe stripe = new Stripe(PaymentActivityStripe.this, "pk_live_7OZYzVGSOLqdPvgOQXR68XuA001huhmyQ5");
+
         stripe.createToken(
                 card,
                 new TokenCallback() {
@@ -154,7 +162,7 @@ public class PaymentActivityStripe extends SwipeBackActivity implements IApiResp
                         // Show localized error message
                         Log.e("token_Stripe",token.getId());
 
-                        pDialog.cancel();
+                     pDialog.cancel();
 
                         Login(token);
 
@@ -192,9 +200,14 @@ public class PaymentActivityStripe extends SwipeBackActivity implements IApiResp
 
 
     private void Login(Token token) {
+
+        pDialog.show();
+
         String userid = Preference.get(PaymentActivityStripe.this, Preference.KEY_USER_ID);
 
         amt=  Preference.getFloat(PaymentActivityStripe.this,Preference.KEY_amount);
+
+       float PriceInCent = amt *100 ;
 
         /*paidAmt =Preference.get(PaymentActivityStripe.this,Preference.KEY_amount);*/
         address=Preference.get(PaymentActivityStripe.this,Preference.key_PlaceUser_address);
@@ -209,7 +222,7 @@ public class PaymentActivityStripe extends SwipeBackActivity implements IApiResp
         map.put("media_id", "22");
         map.put("type", "type");
        // map.put("paymentAmt","4000" );
-        map.put("paymentAmt", String.valueOf(amt));
+      map.put("paymentAmt", String.valueOf(amt));
         map.put("name", fullName);
         map.put("address", address);
         map.put("email", email);
@@ -257,6 +270,8 @@ public class PaymentActivityStripe extends SwipeBackActivity implements IApiResp
 
         if (tag_json_obj.equalsIgnoreCase(Preference.PAY_FOR_CHANNEL)) {
 
+            pDialog.cancel();
+
             if (response != null) {
 
                 PayModel finalArray = new Gson().fromJson(response, new TypeToken<PayModel>() {
@@ -278,7 +293,7 @@ public class PaymentActivityStripe extends SwipeBackActivity implements IApiResp
 
                 }else {
 
-                    Toast.makeText(this,"Payment failed 1", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"Payment failed 1"+finalArray.getMessage(), Toast.LENGTH_SHORT).show();
 
                 }
 

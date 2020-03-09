@@ -73,7 +73,45 @@ public class RecyclerViewAdapter_SelectAddress extends RecyclerView.Adapter<Recy
             final ViewHolder genericViewHolder = (ViewHolder) holder;
             pos = position;
 
-            if(isDefault)
+
+            if(model.getSelctedAddress().equalsIgnoreCase("1"))
+            {
+                genericViewHolder.img_right.setImageResource(R.drawable.location_red_icon);
+                genericViewHolder.img_delete.setImageResource(R.drawable.remove_icon_red);
+                genericViewHolder.img_edit.setImageResource(R.drawable.edit_icon_red);
+
+                genericViewHolder.txt_name.setTextColor(Color. RED);
+                genericViewHolder.txt_city.setTextColor(Color.RED);
+                genericViewHolder.address.setTextColor(Color.RED);
+                genericViewHolder.address_apartment.setTextColor(Color.RED);
+                genericViewHolder.address_state.setTextColor(Color.RED);
+
+                Preference.save(mContext,Preference.KEY_ZipCode,model.getZipcode());
+
+                Preference.save(mContext,Preference.KEY_Address,model.getAddressDetails());
+                Preference.save(mContext,Preference.KEY_Address_Id,model.getAddressId());
+
+                String address=Preference.get(mContext,Preference.KEY_Address);
+                String Zipcode=Preference.get(mContext,Preference.KEY_ZipCode);
+                //  HomeBottomActivity.txt_title_address.setText(Zipcode+","+address);
+                HomeBottomActivity.txt_title_address.setText(address);
+
+            }else
+            {
+                genericViewHolder.img_right.setImageResource(R.drawable.location_black_icon);
+                genericViewHolder.img_delete.setImageResource(R.drawable.remove_icon);
+                genericViewHolder.img_edit.setImageResource(R.drawable.edit_icon_black);
+
+                genericViewHolder.txt_name.setTextColor(Color. BLACK);
+                genericViewHolder.txt_city.setTextColor(Color.BLACK);
+                genericViewHolder.address.setTextColor(Color.BLACK);
+                genericViewHolder.address_apartment.setTextColor(Color.BLACK);
+                genericViewHolder.address_state.setTextColor(Color.BLACK);
+
+
+            }
+
+       /*     if(isDefault)
             {
 
                 for (int i = 0; i < modelList.size(); i++) {
@@ -99,6 +137,7 @@ public class RecyclerViewAdapter_SelectAddress extends RecyclerView.Adapter<Recy
                 String address=Preference.get(mContext,Preference.KEY_Address);
                 String Zipcode=Preference.get(mContext,Preference.KEY_ZipCode);
               //  HomeBottomActivity.txt_title_address.setText(Zipcode+","+address);
+                String address=Preference.get(mContext,Preference.KEY_Address);
                 HomeBottomActivity.txt_title_address.setText(address);
 
             }else if( model.getSelected()){
@@ -134,7 +173,7 @@ public class RecyclerViewAdapter_SelectAddress extends RecyclerView.Adapter<Recy
                 genericViewHolder.address_apartment.setTextColor(Color.BLACK);
                 genericViewHolder.address_state.setTextColor(Color.BLACK);
 
-            }
+            }*/
 
             genericViewHolder.address.setText(model.getAddressDetails());
             genericViewHolder.address_apartment.setText(model.getApartment());
@@ -332,12 +371,12 @@ public class RecyclerViewAdapter_SelectAddress extends RecyclerView.Adapter<Recy
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    for (int i = 0; i < modelList.size(); i++) {
+                /*    for (int i = 0; i < modelList.size(); i++) {
                         modelList.get(i).setSelected(false);
                     }
                     modelList.get(getAdapterPosition()).setSelected(true);
-                    notifyDataSetChanged();
-                 // mItemClickListener.onItemClick(itemView, getAdapterPosition(), modelList.get(getAdapterPosition()));
+                    notifyDataSetChanged();*/
+                 mItemClickListener.onItemClick(itemView, getAdapterPosition(), modelList.get(getAdapterPosition()));
                 }
             });
         }
@@ -348,15 +387,12 @@ public class RecyclerViewAdapter_SelectAddress extends RecyclerView.Adapter<Recy
       String User_Id = Preference.get(mContext,Preference.KEY_USER_ID);
 
         HashMap<String, String> map = new HashMap<>();
-
         map.put("user_id",User_Id);
-
         map.put("Address_id",Address_id);
-
         ApiRequest apiRequest = new ApiRequest(mContext,this);
-
         apiRequest.postRequest( Constants.BASE_URL + Constants.USER_DeleteAddress, Constants.USER_DeleteAddress,map, Request.Method.POST);
     }
+
 
 
     @Override

@@ -22,6 +22,7 @@ import java.util.HashMap;
 
 import shubham.com.featurringfooddelivery.GoogleLocation.GoogleMapActivity;
 import shubham.com.featurringfooddelivery.LoginScreen.OtpLoginModel;
+import shubham.com.featurringfooddelivery.MainActivity;
 import shubham.com.featurringfooddelivery.Preference;
 import shubham.com.featurringfooddelivery.R;
 import shubham.com.featurringfooddelivery.Volley.ApiRequest;
@@ -30,7 +31,7 @@ import shubham.com.featurringfooddelivery.Volley.IApiResponse;
 
 
 public class OtpActvity extends AppCompatActivity implements IApiResponse {
-
+    String FinalOtp;
     String phoneno;
     Button bttn_save;
     RelativeLayout rll_arrow;
@@ -52,14 +53,43 @@ public class OtpActvity extends AppCompatActivity implements IApiResponse {
         }
 
         txt_phonenumber.setText(phoneno);
+
         bttn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                progressbar.setVisibility(View.VISIBLE);
+                String otpOne=edt_otp1.getText().toString();
+                String otpTwo=edt_otp2.getText().toString();
+                String otpThree=edt_otp3.getText().toString();
+                String otpFour=edt_otp4.getText().toString();
 
-                otp_signin(phoneno,"1234");
+                if(otpOne.equalsIgnoreCase(""))
+                {
+                    Toast.makeText(OtpActvity.this, "Please Enter otp", Toast.LENGTH_SHORT).show();
 
+                }else if(otpTwo.equalsIgnoreCase("")){
+
+                    Toast.makeText(OtpActvity.this, "Please Enter otp", Toast.LENGTH_SHORT).show();
+
+                }else if(otpThree.equalsIgnoreCase(""))
+                {
+                    Toast.makeText(OtpActvity.this, "Please Enter otp", Toast.LENGTH_SHORT).show();
+
+                }else if(otpFour.equalsIgnoreCase(""))
+                {
+                    Toast.makeText(OtpActvity.this, "Please Enter otp", Toast.LENGTH_SHORT).show();
+
+                }else
+                {
+
+                      FinalOtp=otpOne+otpTwo+otpThree+otpFour;
+
+
+                    progressbar.setVisibility(View.VISIBLE);
+
+                    otp_signin(phoneno,FinalOtp);
+
+                }
             }
         });
 
@@ -125,9 +155,10 @@ public class OtpActvity extends AppCompatActivity implements IApiResponse {
 
         edt_otp4.addTextChangedListener(new TextWatcher() {
             public void afterTextChanged(Editable s) {
-               /* if (s.length() == 1) {
-                    edt_otp5.requestFocus();
-                }*/
+                if (s.length() == 1) {
+                   // edt_otp5.requestFocus();
+                 //   otp_signin(phoneno,FinalOtp);
+                }
 
             }
 
@@ -165,6 +196,7 @@ public class OtpActvity extends AppCompatActivity implements IApiResponse {
         HashMap<String, String> map = new HashMap<>();
 
         map.put("mobile",mobile);
+
         map.put("otp_code",otp_code);
 
         ApiRequest apiRequest = new ApiRequest(OtpActvity.this,this);
@@ -190,7 +222,7 @@ public class OtpActvity extends AppCompatActivity implements IApiResponse {
 
                     Preference.save(this,Preference.KEY_USER_ID,finalArray.getUserid().toString());
 
-                 Intent myIntent = new Intent( OtpActvity.this, GoogleMapActivity.class );
+                    Intent myIntent = new Intent( OtpActvity.this, GoogleMapActivity.class );
                     startActivity( myIntent );
                 }
             }

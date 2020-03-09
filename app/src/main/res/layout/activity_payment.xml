@@ -775,22 +775,26 @@
 
 
                 <Button
-                    android:layout_margin="10dp"
-                    android:layout_below="@+id/LL_paymetn"
                     android:id="@+id/login_place"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/LL_paymetn"
                     android:layout_centerHorizontal="true"
                     android:layout_gravity="center"
-                    android:layout_marginTop="15dp"
-                    android:textAllCaps="false"
-                    android:textSize="18dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/roundbttn"
                     android:ems="15"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:text="Place Order: $14.95"
-                    android:textColor="@color/white" />
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="18dp" />
 
             </RelativeLayout>
 

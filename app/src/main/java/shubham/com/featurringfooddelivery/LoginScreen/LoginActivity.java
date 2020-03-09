@@ -9,8 +9,10 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -29,6 +31,7 @@ import java.util.HashMap;
 import shubham.com.featurringfooddelivery.OTPScreen.OtpActvity;
 import shubham.com.featurringfooddelivery.Preference;
 import shubham.com.featurringfooddelivery.R;
+import shubham.com.featurringfooddelivery.TermsCondition.TermsCondition;
 import shubham.com.featurringfooddelivery.Volley.ApiRequest;
 import shubham.com.featurringfooddelivery.Volley.Constants;
 import shubham.com.featurringfooddelivery.Volley.IApiResponse;
@@ -45,7 +48,7 @@ public class LoginActivity extends AppCompatActivity implements IApiResponse {
     ImageView img_flag;
     Spinner sp;
     String Mobilenm;
-    TextView txt_two;
+    TextView txt_terms_condition;
     TextView txt_privacy_policy;
     CheckBox checkbox;
 
@@ -66,12 +69,40 @@ public class LoginActivity extends AppCompatActivity implements IApiResponse {
         sp.setAdapter(customAdapter);
         sp.setEnabled(false);
 
-        checkLocationPermission();
+        txt_terms_condition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Intent myIntent = new Intent( LoginActivity.this, TermsCondition.class );
+                startActivity( myIntent );
+
+
+
+            }
+        });
+
+        edt_phoneno.setOnEditorActionListener(new EditText.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+
+                 //   LoginMobile("+1"+Mobilenm);
+                    //do here your stuff f
+                    return true;
+                }
+                return false;
+            }
+        });
+
+      //  checkLocationPermission();
 
         img_next.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View arg0) {
+
                 Mobilenm = edt_phoneno.getText().toString();
+
                 if(Mobilenm.equalsIgnoreCase(""))
                 {
                     Toast.makeText(LoginActivity.this, "please enter mobile number", Toast.LENGTH_SHORT).show();
@@ -88,7 +119,7 @@ public class LoginActivity extends AppCompatActivity implements IApiResponse {
                 else {
                     progressbar.setVisibility(View.VISIBLE);
 
-                    LoginMobile(Mobilenm);
+                    LoginMobile("+1"+Mobilenm);
 
                 }
                 //  Mobilenm = edt_mobn.getText().toString();
@@ -120,7 +151,7 @@ public class LoginActivity extends AppCompatActivity implements IApiResponse {
         img_flag=(ImageView) findViewById(R.id.img_flag);*/
         sp=(Spinner)findViewById(R.id.spinner);
         edt_phoneno=(EditText) findViewById(R.id.edt_phoneno);
-        txt_two=(TextView) findViewById(R.id.txt_terms_condition);
+        txt_terms_condition=(TextView) findViewById(R.id.txt_terms_condition);
         txt_privacy_policy=(TextView) findViewById(R.id.txt_privacy_policy);
         checkbox=(CheckBox) findViewById(R.id.checkbox);
     }
@@ -198,6 +229,7 @@ public class LoginActivity extends AppCompatActivity implements IApiResponse {
         HashMap<String, String> map = new HashMap<>();
 
         map.put("mobile",mobile);
+       // map.put("country_code","+1");
 
         ApiRequest apiRequest = new ApiRequest(LoginActivity.this,this);
 
@@ -220,9 +252,8 @@ public class LoginActivity extends AppCompatActivity implements IApiResponse {
 
                 if (status.equalsIgnoreCase("success")){
 
-
                     Intent myIntent = new Intent( LoginActivity.this, OtpActvity.class );
-                    myIntent.putExtra("phonenumber",Mobilenm);
+                    myIntent.putExtra("phonenumber","+1"+Mobilenm);
                     startActivity( myIntent );
 
                 }

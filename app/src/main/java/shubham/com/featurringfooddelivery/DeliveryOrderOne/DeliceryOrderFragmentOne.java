@@ -131,7 +131,7 @@ public class DeliceryOrderFragmentOne extends SwipeBackFragment implements IApiR
 
 
                // addCardMethod(CategoryID,"1",user_id,ingredients_ID);
-                addCardMethod(subCategoryID,"1",user_id,"1");
+                addCardMethod(itemId,"1",user_id,"1");
 
                 Fragment someFragment = new OrderBookingFragment();
                 FragmentTransaction transaction = ((FragmentActivity)getActivity()).getSupportFragmentManager().beginTransaction();
@@ -214,21 +214,21 @@ public class DeliceryOrderFragmentOne extends SwipeBackFragment implements IApiR
     }
 
 
-    public void subhomeMethod(String CategoryID){
+    public void subhomeMethod(String subCategoryID){
 
         HashMap<String, String> map = new HashMap<>();
 
-        map.put("SubCategoryId",CategoryID);
+        map.put("SubCategoryId",subCategoryID);
         map.put("ItemId",itemId);
         ApiRequest apiRequest = new ApiRequest(getActivity(),this);
         apiRequest.postRequest(Constants.BASE_URL + Constants.Ingredients, Constants.Ingredients,map, Request.Method.POST);
     }
 
-    public void addCardMethod(String ProductId,String Quantity,String user_id,String ingredients_id){
+    public void addCardMethod(String itemId,String Quantity,String user_id,String ingredients_id){
 
         HashMap<String, String> map = new HashMap<>();
 
-        map.put("ItemId",ProductId);
+        map.put("ItemId",itemId);
         map.put("Quantity",Quantity);
         map.put("user_id",user_id);
         map.put("ingredients_id",ingredients_id);

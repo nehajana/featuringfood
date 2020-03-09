@@ -12,7 +12,6 @@ import android.view.WindowManager;
 import shubham.com.featurringfooddelivery.HomeScreen.HomeBottomActivity;
 import shubham.com.featurringfooddelivery.LoginScreen.LoginActivity;
 
-
 public class SplashScreen extends AppCompatActivity {
 
     private final int SPLASH_DISPLAY_LENGTH = 3000;
@@ -39,8 +38,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
 
-
-                User_id=Preference.get(SplashScreen.this,Preference.KEY_USER_ID);
+              User_id=Preference.get(SplashScreen.this,Preference.KEY_USER_ID);
 
                 if(User_id != null && !User_id.trim().equalsIgnoreCase("0")){
 
@@ -53,7 +51,6 @@ public class SplashScreen extends AppCompatActivity {
                     Intent intent=new Intent(SplashScreen.this, LoginActivity.class);
                     startActivity(intent);
                     finish();
-
                 }
 
             }

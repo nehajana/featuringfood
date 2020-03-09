@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 public class Preference {
+
     public static final String APP_PREF = "KapsiePreferences";
 
     public static SharedPreferences sp;
@@ -24,7 +25,6 @@ public class Preference {
     public static String KEY_CategoryId = "category_id";
 
     public static String KEY_Main_CategoryId = "main_category_id";
-
 
     public static String KEY_Ordertype= "Ordertype";
     public static String KEY_OrderDay= "OrderDay";
@@ -53,8 +53,6 @@ public class Preference {
     public static String TYPE = "type";
     //public static String PAY_FOR_CHANNEL = "http://ixorainfotech.in/apicollection/featuring/Webservice/letsPayForChannel";
     public static String PAY_FOR_CHANNEL = "http://ixorainfotech.in/apicollection/featurringfood/Webservice/letsPayForproducts";
-
-
 
 
     //-----------------------------------

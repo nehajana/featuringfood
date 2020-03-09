@@ -7,6 +7,11 @@
 
     <string name="hello_world">Hello world!</string>
 
+    <string name="GPSAlertDialogTitle">GPS!</string>
+    <string name="GPSAlertDialogMessage">Location!</string>
+    <string name="action_settings">Setting!</string>
+    <string name="cancel">Cancel</string>
+
     <string name="google_maps_api_key">AIzaSyB3_aRArcRZxO8Tz9nBWswQRMgR5HOKuGw</string>
 
     // paymentStripe
