@@ -13,6 +13,7 @@ public class CustomAdapter extends BaseAdapter {
     Context context;
     ArrayList<CountryDatamodel> countryNames;
     LayoutInflater inflter;
+    int a;
 
     public CustomAdapter(Context applicationContext, ArrayList<CountryDatamodel> countryNames) {
         this.context = applicationContext;
